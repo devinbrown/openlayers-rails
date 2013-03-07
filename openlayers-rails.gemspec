@@ -8,6 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Openlayers::Rails::VERSION
   gem.authors       = ["Toms Mikoss"]
   gem.email         = ["toms.mikoss@gmail.com"]
+  # FIXME: "WARNING:  description and summary are identical"
   gem.description   = %q{OpenLayers library packaged for easy inclusion in Ruby on Rails asset pipeline.}
   gem.summary       = gem.description
 
