@@ -55,5 +55,6 @@ task :update_from_source do
     FileUtils.cp_r Dir.glob(File.join source_directory, source), destination
   end
 
+  # TODO: need to clean up files that were used for precompiling, especially if running rake task from gem'd loc
   puts "Done! Now update version information and release!"
 end
