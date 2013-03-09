@@ -1,6 +1,7 @@
 require "bundler/gem_tasks"
 require "fileutils"
 
+# TODO: move to lib/tasks
 # TODO: needs to be accessible in application (rake -T)
 # TODO: refactor needed, modularize to lower coupling, conversion to thor....
 desc "Update included OpenLayers sources"
