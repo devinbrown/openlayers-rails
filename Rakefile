@@ -14,6 +14,7 @@ task :update_from_source do
 
   puts "Trashing the old stuff..."
 
+  # FIXME: this will destroy all vendored assets
   FileUtils.rm_r Dir.glob(File.join assets_directory, '*')
 
   puts "Building the main JS file..."
