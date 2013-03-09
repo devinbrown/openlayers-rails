@@ -29,11 +29,15 @@ task :update_from_source do
 
   # NOTE: looks like we've found a way to build this mofo!
   # mkdir_p = final dest. + all parents
+  # FIXME: "sh: line 0: cd: /Users/dgb/Dropbox/development/openlayers-rails/openlayers/build: No such file or directory"
+  # FIXME: "python: can't open file './buildUncompressed.py': [Errno 2] No such file or directory"
   FileUtils.mkdir_p File.dirname build_destination
   `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
 
   puts "Copying over other files..."
 
+  # FIXME: "No such file or directory - /Users/dgb/Dropbox/development/openlayers-rails/openlayers/authors.txt"
+  # FIXME: "No such file or directory - /Users/dgb/Dropbox/development/openlayers-rails/openlayers/license.txt"
   # copy author and lisence from (updated) source_directory to deployment directory (current_directory, based of gem)
   ["authors.txt", "license.txt"].each do |file|
     FileUtils.cp File.join(source_directory, file), File.join(current_directory, file)
