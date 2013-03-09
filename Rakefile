@@ -22,6 +22,7 @@ task :update_from_source do
   build_dir         = File.join source_directory, 'build'
   build_destination = File.join assets_directory, 'javascripts', 'openlayers', 'OpenLayers.js'
 
+  # NOTE: looks like we've found a way to build this mofo!
   FileUtils.mkdir_p File.dirname build_destination
   `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
 
