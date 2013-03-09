@@ -1,6 +1,8 @@
 require "bundler/gem_tasks"
 require "fileutils"
 
+# TODO: needs to be accessible in application (rake -T)
+# TODO: refactor needed, modularize to lower coupling, conversion to thor....
 desc "Update included OpenLayers sources"
 task :update_from_source do
   current_directory = File.expand_path File.dirname(__FILE__)
@@ -10,6 +12,7 @@ task :update_from_source do
 
   puts "Updating sources..."
 
+  # git submodule taps into the most recent OpenLayer version via git repo
   `git submodule update`
 
   puts "Trashing the old stuff..."
@@ -20,18 +23,23 @@ task :update_from_source do
   puts "Building the main JS file..."
 
   build_dir         = File.join source_directory, 'build'
+  # NOTE: will need to make this final name specified by the user
   build_destination = File.join assets_directory, 'javascripts', 'openlayers', 'OpenLayers.js'
 
   # NOTE: looks like we've found a way to build this mofo!
+  # mkdir_p = final dest. + all parents
   FileUtils.mkdir_p File.dirname build_destination
   `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
 
   puts "Copying over other files..."
 
+  # copy author and lisence from (updated) source_directory to deployment directory (current_directory, based of gem)
   ["authors.txt", "license.txt"].each do |file|
     FileUtils.cp File.join(source_directory, file), File.join(current_directory, file)
   end
 
+  # appears to be copying relevant files from "openlayers" to vendor/assets
+  # source => destination
   {
     "img/*"               => File.join(assets_directory, "images/openlayers/img"),
     "theme/default/img/*" => File.join(assets_directory, "images/openlayers/theme/default/img"),
