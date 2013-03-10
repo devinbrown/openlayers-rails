@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gemspec
+# required for development of generators
+gem 'rails'

@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{OpenLayers library packaged for easy inclusion in Ruby on Rails asset pipeline.}
   gem.summary       = gem.description
 
+  gem.add_dependency             'railties',   '>= 3.1'
   gem.files         = `git ls-files`.split($/) - ['openlayers', 'Gemfile', 'Gemfile.lock', 'Rakefile']
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
