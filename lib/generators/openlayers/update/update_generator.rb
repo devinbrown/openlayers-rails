@@ -6,7 +6,7 @@ module Openlayers
       desc "This updates the local OpenLayers library"
 
       def update
-        current_directory = File.expand_path File.join File.dirname(__FILE__), "..", "..", "..", ".."
+        current_directory = Rails.root
         source_directory  = File.join current_directory, 'openlayers'
         assets_directory  = File.join current_directory, 'vendor', 'assets'
         docs_directory    = File.join current_directory, 'doc'
