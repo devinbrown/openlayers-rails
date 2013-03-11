@@ -13,11 +13,7 @@ module Openlayers
       desc "This updates the local OpenLayers library"
 
       CURRENT_DIRECTORY = Rails.root
-
-      # source_path() ?
       SOURCE_DIRECTORY   = File.join CURRENT_DIRECTORY, 'openlayers'
-
-      # destination_root() ?
       ASSETS_DIRECTORY    = File.join CURRENT_DIRECTORY, 'vendor', 'assets'
       DOCS_DIRECTORY      = File.join CURRENT_DIRECTORY, 'doc'
 
@@ -26,26 +22,15 @@ module Openlayers
       end
 
       def update_openlayers_submodule
-        puts "Updating sources..."
         `git submodule update`
       end
 
-      def trash_vendored_assets
-        # FIXME: this will destroy ALL vendored assets, not sure if this is acutally needed
-        # puts "Trashing the old stuff..."
-        # FileUtils.rm_r Dir.glob(File.join ASSETS_DIRECTORY, '*')
-      end
-
       def build_openlayers
-        puts "Building the main JS file..."
         build_dir = File.join SOURCE_DIRECTORY, 'build'
+
         # NOTE: will need to make this final name specified by the user
         build_destination = File.join ASSETS_DIRECTORY, 'javascripts', 'openlayers', 'OpenLayers.js'
 
-        # NOTE: looks like we've found a way to build this mofo!
-        # mkdir_p = final dest. + all parents
-        # FIXME: "sh: line 0: cd: /Users/dgb/Dropbox/development/openlayers-rails/openlayers/build: No such file or directory"
-        # FIXME: "python: can't open file './buildUncompressed.py': [Errno 2] No such file or directory"
         FileUtils.mkdir_p File.dirname build_destination
         `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
       end
@@ -76,7 +61,7 @@ module Openlayers
 
       # Remove files used in build process
       def cleanup
-        FileUtils.rm_rf File.join Rails.root, "openlayers"
+        FileUtils.rm_rf File.join Rails.root, "openlayers/*"
       end
     end
   end
