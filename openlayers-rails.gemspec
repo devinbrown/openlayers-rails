@@ -1,21 +1,19 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'openlayer/rails/version'
+$:.push File.expand_path('../lib', __FILE__)
+require 'openlayers/rails/version'
 
-Gem::Specification.new do |gem|
-  gem.name          = "openlayers-rails"
-  gem.version       = Openlayers::Rails::VERSION
-  gem.authors       = ["Devin Brown", "Toms Mikoss"]
-  gem.email          = ["devin.g.brown@gmail.com", "toms.mikoss@gmail.com"]
-  gem.description   = %q{OpenLayers library packaged for easy inclusion in Ruby on Rails asset pipeline.}
-  gem.summary       = gem.description
+Gem::Specification.new do |s|
+  s.name          = "openlayers-rails"
+  s.version       = OpenLayers::Rails::VERSION
+  s.platform     = Gem::Platform::RUBY
+  s.authors       = ["Devin Brown"]
+  s.email          = ["devin.g.brown@gmail.com"]
+  s.summary      = %q{OpenLayers toolkit for Rails 3.1 Asset Pipeline}
+  s.description   = %q{openlayer-rails gem integrates OpenLayers rails toolkit for Rails 3.1 Asset Pipeline}
 
-  gem.add_dependency             'railties',   '>= 3.1'
-  gem.files = Dir["lib/**/*"] + Dir["vendor/**/*"]
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"]  # + Dir["app/**/*"]
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
 
-  gem.add_dependency "railties", "~> 3.1"
+  s.add_dependency "railties", "~> 3.1"
+  s.add_development_dependency 'rails', '>= 3.1'
 end
