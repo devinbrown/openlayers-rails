@@ -1,21 +1,37 @@
-# openlayers-rails
+# OpenLayers for Rails 3.1 Asset Pipeline
 
-[OpenLayers](http://openlayers.org/) library packed for use in Ruby on Rails asset pipeline. Currently includes OpenLayers version 2.12
+The [OpenLayers](http://openlayers.org/) library packaged for use with Ruby on Rails' Asset Pipeline.
 
-## Installation
+## Installing the Gem
 
-Add this line to your application's Gemfile:
+```ruby
+gem 'openlayers-rails'
+```
 
-    gem 'openlayers-rails'
+```
+bundle install
+```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install openlayers-rails
+```
+gem install openlayers-rails
+```
 
 ## Usage
 
-Add `//= require openlayers-rails` to your `app/assets/javascripts/application.js` manifest file.
+Add the following to your `application.js` manifest file:
+
+```js
+//= require openlayers-rails`
+```
+
+## Generator Usage
+
+For general maintenance or customized **OpenLayer** library configuration, see the following `rails generator` commands.
+
+### Updating OpenLayers Libraries
+
+```
+rails generator openlayers:update
+```
+
+### Customizing OpenLayers Libraries
