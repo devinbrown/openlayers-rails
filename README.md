@@ -12,10 +12,6 @@ gem 'openlayers-rails'
 bundle install
 ```
 
-```
-gem install openlayers-rails
-```
-
 ## Usage
 
 Add the following to your `application.js` manifest file:
