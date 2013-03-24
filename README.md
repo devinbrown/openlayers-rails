@@ -12,22 +12,14 @@ gem 'openlayers-rails'
 bundle install
 ```
 
-## Usage
-
-Add the following to your `application.js` manifest file:
-
-```js
-//= require openlayers-rails`
-```
-
-## Generator Usage
+##  Usage
 
 For general maintenance or customized **OpenLayer** library configuration, see the following `rails generator` commands.
 
-### Updating OpenLayers Libraries
+### Install OpenLayers
+
+To install the most recent version of **OpenLayers** with your Rails application:
 
 ```
 rails generator openlayers:update
 ```
-
-### Customizing OpenLayers Libraries
