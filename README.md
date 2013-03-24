@@ -14,8 +14,6 @@ bundle install
 
 ##  Usage
 
-For general maintenance or customized **OpenLayer** library configuration, see the following `rails generator` commands.
-
 ### Install OpenLayers
 
 To install the most recent version of **OpenLayers** with your Rails application:
