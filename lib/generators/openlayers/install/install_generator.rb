@@ -1,16 +1,9 @@
-# # TODO: extract module
-# module Thor::Actions
-#   def source_paths
-#     [File.join(Rails.root, "openlayers")]
-#   end
-# end
-
 module Openlayers
   module Generators
-    class UpdateGenerator < Rails::Generators::Base
+    class InstallGenerator < Rails::Generators::Base
 
       source_root File.expand_path('../templates', __FILE__)
-      desc "This updates the local OpenLayers library"
+      desc "Install the most recent version of OpenLayers to the Asset Pipeline"
 
       CURRENT_DIRECTORY = Rails.root
       SOURCE_DIRECTORY   = File.join CURRENT_DIRECTORY, 'openlayers'
