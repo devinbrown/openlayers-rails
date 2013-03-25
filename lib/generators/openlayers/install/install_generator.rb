@@ -1,60 +1,40 @@
+# FIXME: refactor / simplify / make more Thorsy
 module Openlayers
   module Generators
     class InstallGenerator < Rails::Generators::Base
-
-      source_root File.expand_path('../templates', __FILE__)
       desc "Install the most recent version of OpenLayers to the Asset Pipeline"
 
-      CURRENT_DIRECTORY = Rails.root
-      SOURCE_DIRECTORY   = File.join CURRENT_DIRECTORY, 'openlayers'
-      ASSETS_DIRECTORY    = File.join CURRENT_DIRECTORY, 'vendor', 'assets'
-      DOCS_DIRECTORY      = File.join CURRENT_DIRECTORY, 'doc'
+      source_root File.expand_path("../../../../../vendor/assets", __FILE__)
 
-      # clear old cruft, prepare for updated openlayers files
-      def prepare_directories
-        FileUtils.rm_rf File.join Rails.root, "openlayers"
+      # JS_PATH = File.join source_root, "javascripts"
+      # CSS_PATH = File.join source_root, "stylesheets"
+      # IMG_PATH = File.join source_root, "images"
+
+      # WTB: destination_root
+
+      # def add_assets
+      #   if File.exist?('vendor/assets/javascripts/application.js')
+      #     insert_into_file "vendor/assets/javascripts/application.js", "//= require openlayers/rails\n"
+      #   else
+      #     copy_file "application.js", "vendor/assets/javascripts/application.js"
+      #   end
+
+      #   if File.exist?('vendor/assets/stylesheets/application.css')
+      #     # nothing atm?
+      #   else
+      #     copy_file "application.css", "vendor/assets/stylesheets/application.css"
+      #   end
+      # end
+
+
+      def add_javascript
+        copy_file "javascripts/Openlayers.js", "vendor/assets/javascripts/OpenLayers.js"
       end
 
-      # get the updated openlayers code
-      def update_openlayers_submodule
-        `git submodule update`
+      def add_stylesheets
       end
 
-      # place primary OpenLayer JS into 'vendor/assets'
-      def build_openlayers
-        build_dir = File.join SOURCE_DIRECTORY, 'build'
-
-        # NOTE: will need to make this final name specified by the user
-        build_destination = File.join ASSETS_DIRECTORY, 'javascripts', 'openlayers', 'OpenLayers.js'
-
-        FileUtils.mkdir_p File.dirname build_destination
-        `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
-      end
-
-      # place primary OpenLayer images into 'vendor/assets'
-      def copy_images
-        Dir.glob(File.join(SOURCE_DIRECTORY, "img", "*")).each do |source_file|
-          copy_file source_file, File.join(ASSETS_DIRECTORY, "images/openlayers/img/#{source_file.split("/").last}")
-        end
-      end
-
-      # place default OpenLayer images into 'vendor/assets'
-      def copy_default_images
-        Dir.glob(File.join(SOURCE_DIRECTORY, "theme", "default", "img", "*")).each do |source_file|
-          copy_file source_file, File.join(ASSETS_DIRECTORY, "images/openlayers/theme/default/img/#{source_file.split("/").last}")
-        end
-      end
-
-      # place OpenLayer stylesheets into 'vendor/assets'
-      def copy_stylesheets
-        Dir.glob(File.join(SOURCE_DIRECTORY, "theme", "default", "*.css")).each do |source_file|
-          copy_file source_file, File.join(ASSETS_DIRECTORY, "stylesheets/openlayers/theme/default/#{source_file.split("/").last}")
-        end
-      end
-
-      # Remove files used in build process (e.g. updated / downloaded openlayers files)
-      def cleanup
-        FileUtils.rm_rf File.join Rails.root, "openlayers/*"
+      def add_images
       end
     end
   end
