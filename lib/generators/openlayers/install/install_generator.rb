@@ -31,13 +31,6 @@ module Openlayers
         `cd #{build_dir} && python ./buildUncompressed.py full #{build_destination}`
       end
 
-      # TODO: generate if specified from generate command
-      # def copy_extra_files
-      #   # license and authors
-      #   copy_file File.join(SOURCE_DIRECTORY, "authors.txt"), File.join(CURRENT_DIRECTORY, "authors.txt")
-      #   copy_file File.join(SOURCE_DIRECTORY, "LICENSE.txt"), File.join(CURRENT_DIRECTORY, "LICENSE.txt")
-      # end
-
       # place primary OpenLayer images into 'vendor/assets'
       def copy_images
         Dir.glob(File.join(SOURCE_DIRECTORY, "img", "*")).each do |source_file|
