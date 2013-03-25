@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary      = %q{OpenLayers toolkit for Rails 3.1 Asset Pipeline}
   s.description   = %q{openlayer-rails gem integrates OpenLayers rails toolkit for Rails 3.1 Asset Pipeline}
 
-  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"]  # + Dir["app/**/*"]
+  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"]
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
