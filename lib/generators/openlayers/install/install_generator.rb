@@ -11,7 +11,10 @@ module Openlayers
         copy_file "javascripts/Openlayers.js", "#{js_dest}/OpenLayers.js"
       end
 
+      # TODO: allow for users to select default CSS for initial install
       def add_stylesheets
+        ss = "vendor/assets/stylesheets/theme/default/style.css"
+        copy_file "stylesheets/theme/default/style.css", ss
       end
 
       def add_images
