@@ -6,9 +6,9 @@ module Openlayers
 
       source_root File.expand_path("../../../../../vendor/assets", __FILE__)
 
-      # JS_PATH = File.join source_root, "javascripts"
-      # CSS_PATH = File.join source_root, "stylesheets"
-      # IMG_PATH = File.join source_root, "images"
+      JS_PATH = File.join source_root, "javascripts"
+      CSS_PATH = File.join source_root, "stylesheets"
+      IMG_PATH = File.join source_root, "images"
 
       def add_javascript
         copy_file "javascripts/Openlayers.js", "vendor/assets/javascripts/OpenLayers.js"
