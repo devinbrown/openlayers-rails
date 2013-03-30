@@ -10,23 +10,6 @@ module Openlayers
       # CSS_PATH = File.join source_root, "stylesheets"
       # IMG_PATH = File.join source_root, "images"
 
-      # WTB: destination_root
-
-      # def add_assets
-      #   if File.exist?('vendor/assets/javascripts/application.js')
-      #     insert_into_file "vendor/assets/javascripts/application.js", "//= require openlayers/rails\n"
-      #   else
-      #     copy_file "application.js", "vendor/assets/javascripts/application.js"
-      #   end
-
-      #   if File.exist?('vendor/assets/stylesheets/application.css')
-      #     # nothing atm?
-      #   else
-      #     copy_file "application.css", "vendor/assets/stylesheets/application.css"
-      #   end
-      # end
-
-
       def add_javascript
         copy_file "javascripts/Openlayers.js", "vendor/assets/javascripts/OpenLayers.js"
       end
