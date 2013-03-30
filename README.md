@@ -16,8 +16,9 @@ bundle install
 
 ### Install OpenLayers
 
-To install the most recent version of **OpenLayers** with your Rails application:
+Install **OpenLayers Rails** into the Asset Pipeline within your Rails
+application.
 
 ```
-rails generator openlayers:update
+rails generator openlayers:install
 ```
