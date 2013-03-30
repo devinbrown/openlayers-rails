@@ -24,6 +24,8 @@ module Openlayers
           copy_file "images/img/#{File.basename f}", "#{img_dest}/#{f}"
         end
       end
+
+      # TODO: gsub / update respective manifests based on included files
     end
   end
 end
