@@ -16,6 +16,7 @@ module Openlayers
         copy_file "css/style.css", ss
       end
 
+      # FIXME: not creating in the correct directory on remote install
       def add_images
         img_dest = "vendor/assets/images/img"
         img_source = File.join source_paths, "img"
