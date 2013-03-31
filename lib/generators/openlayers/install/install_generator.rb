@@ -3,7 +3,6 @@ module Openlayers
     class InstallGenerator < Rails::Generators::Base
       desc "Install the most recent version of OpenLayers to the Asset Pipeline"
 
-      # TODO: test this as repo'd gem (not locally installed)
       source_root File.expand_path("../templates", __FILE__)
 
       def add_javascript
