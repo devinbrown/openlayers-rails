@@ -16,12 +16,12 @@ module Openlayers
         copy_file "css/style.css", ss
       end
 
-      # FIXME: not creating in the correct directory on remote install
       def add_images
-        img_dest = "vendor/assets/images/img"
+        img_root = "vendor/assets/images/img"
         img_source = File.join source_paths, "img"
-        Dir.glob("#{img_source}/*").each do |f|
-          copy_file "img/#{File.basename f}", "#{img_dest}/#{File.basename f}"
+        Dir.glob("#{img_source}/*").each do |path|
+          f = File.basename path
+          copy_file "img/#{f}", "#{img_root}/#{f}"
         end
       end
 
