@@ -38,6 +38,20 @@ module Openlayers
           copy_file 'application.js', js_manifest
         end
       end 
+
+      def include_css_manifest
+
+        css_manifest = "vendor/assets/stylesheets/application.css"
+
+        if File.exist?(css_manifest)
+          content = File.read css_manifest
+          unless content.match(/require theme\/default\/style/)
+            insert_into_file css_manifest, "/* require theme/default/style */"
+          end
+        else
+          copy_file 'application.css', css_manifest
+        end
+      end
     end
   end
 end
