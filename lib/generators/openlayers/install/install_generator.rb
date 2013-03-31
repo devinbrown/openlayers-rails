@@ -21,7 +21,7 @@ module Openlayers
         img_dest = "vendor/assets/images/img"
         img_source = File.join source_paths, "img"
         Dir.glob("#{img_source}/*").each do |f|
-          copy_file "img/#{File.basename f}", "#{img_dest}/#{f}"
+          copy_file "img/#{File.basename f}", "#{img_dest}/#{File.basename f}"
         end
       end
 
