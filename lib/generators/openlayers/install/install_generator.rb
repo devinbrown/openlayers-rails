@@ -52,6 +52,11 @@ module Openlayers
           copy_file 'application.css', css_manifest
         end
       end
+
+      # TODO: include vendor manifest in asset pipeline
+      # e.g. config.assets.precompile += %w(vendor.js vendor.css)
+      
+      # TODO: does OL pathing work in given location? needs testing...
     end
   end
 end
